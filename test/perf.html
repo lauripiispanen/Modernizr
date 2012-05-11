@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Android localStorage perf test</title>
+    <script type="text/javascript">
+        window.loadStarted = new Date().getTime();
+    </script>
+    <script src="../modernizr.js"></script>
+    <script type="text/javascript">
+        window.scriptLoaded = new Date().getTime();
+    </script>
+  </head>
+  <body>
+    <p>Script load took <span id="load-millis"></span> ms.</p>
+    <p>localStorage exists: <span id="local"></span> test took <span id="local-millis"></span> ms.</p>
+    <script type="text/javascript">
+        document.getElementById("local").innerText = Modernizr.localstorage;
+
+        document.getElementById("load-millis").innerText = window.scriptLoaded - window.loadStarted;
+        document.getElementById("local-millis").innerText = new Date().getTime() - window.scriptLoaded;
+    
+    </script>
+  </body>
+</html>
